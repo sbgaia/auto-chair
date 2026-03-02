@@ -1,0 +1,196 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+title: Work
+type: object
+additionalProperties: false
+properties:
+  # How to generate this field?
+  abstract_inverted_index:
+    type: object
+    additionalProperties: false
+    patternProperties:
+      "^[a-z]+$":
+        type: object
+        additionalProperties: false
+        patternProperties:
+          "^[0-9]+$":
+            type: array
+            items:
+              type: integer
+  awards:
+    type: array
+    items:
+      $ref: "./award.yaml"
+  authorships:
+    type: array
+    items:
+      $ref: "./authorship.yaml"
+  apc_list:
+    $ref: "./apc.yaml"
+  apc_paid:
+    $ref: "./apc.yaml"
+  best_oa_location:
+    $ref: "./location.yaml"
+  biblio:
+    $ref: "./bibliography.yaml"
+  citation_normalized_percentile:
+    type: object
+    additionalProperties: false
+    properties:
+      value:
+        type: number
+      is_in_top_1_percent:
+        type: boolean
+      is_in_top_10_percent:
+        type: boolean
+  cited_by_count:
+    type: integer
+  cited_by_percentile_year:
+    type: object
+    additionalProperties: false
+    properties:
+      min:
+        type: integer
+      max:
+        type: integer
+  concepts:
+    type: array
+    items:
+      $ref: "./concept.yaml"
+  corresponding_author_ids:
+    type: array
+    items:
+      type: string
+  corresponding_institution_ids:
+    type: array
+    items:
+      type: string
+  content_url:
+    type: string
+    format: uri
+  countries_distinct_count:
+    type: integer
+  counts_by_year:
+    type: array
+    items:
+      type: object
+      additionalProperties: false
+      properties:
+        year:
+          type: integer
+        cited_by_count:
+          type: integer
+  created_date:
+    type: string
+    format: date-time
+  display_name:
+    type: string
+  doi:
+    type: string
+  fwci:
+    type: number
+  founders:
+    type: array
+    items:
+      $ref: "./founder.yaml"
+  has_content:
+    type: object
+    additionalProperties: false
+    properties:
+      pdf:
+        type: boolean
+      grobid_xml:
+        type: boolean
+  id:
+    type: string
+  ids:
+    type: object
+    additionalProperties: false
+    properties:
+      doi:
+        type: string
+      openalex:
+        type: string
+      mag:
+        type: integer
+      pmid:
+        type: string
+      pmcid:
+        type: string
+  # Accepted values are arxiv, crossref, doaj, pubmed
+  indexed_in:
+    type: array
+    items:
+      enum: ["arxiv", "crossref", "doaj", "pubmed"]
+  institutions_distinct_count:
+    type: integer
+  is_paratext:
+    type: boolean
+  is_retracted:
+    type: boolean
+  is_xpac:
+    type: boolean
+  keywords:
+    type: array
+    items:
+      $ref: "./keyword.yaml"
+  language:
+    type: string
+  locations:
+    type: array
+    items:
+      $ref: "./location.yaml"
+  locations_count:
+    type: integer
+  mesh:
+    type: array
+    items:
+      $ref: "./mesh.yaml"
+  open_access:
+    type: object
+    additionalProperties: false
+    properties:
+      is_oa:
+        type: boolean
+      oa_status:
+        enum: ["closed", "green", "gold", "hybrid", "bronze", "diamond"]
+      oa_url:
+        type: string
+        format: uri
+      any_repository_has_fulltext:
+        type: boolean
+  primary_location:
+    $ref: "./location.yaml"
+  primary_topic:
+    $ref: "./topic.yaml"
+  publication_date:
+    type: string
+    format: date
+  publication_year:
+    type: integer
+  referenced_works:
+    type: array
+    items:
+      type: string
+      format: uri
+  referenced_works_count:
+    type: integer
+  related_works:
+    type: array
+    items:
+      type: string
+      format: uri
+  sustainable_development_goals:
+    type: array
+    items:
+      $ref: "./sustainable_development_goal.yaml"
+  topics:
+    type: array
+    items:
+      $ref: "./topic.yaml"
+  title:
+    type: string
+  type:
+    type: string
+  updated_date:
+    type: string
+    format: date-time
