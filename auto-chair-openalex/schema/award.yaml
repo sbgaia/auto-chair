@@ -1,0 +1,43 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+title: Award
+type: object
+additionalProperties: false
+properties:
+  id:
+    type: string
+  display_name:
+    type: string
+  cited_by_count:
+    type: integer
+  works_count:
+    type: integer
+  funders:
+    type: array
+    items:
+      type: object
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+        display_name:
+          type: string
+  summary_stats:
+    $ref: "./summary_stats.yaml"
+  topics:
+    type: array
+    items:
+      $ref: "./topic.yaml"
+  keywords:
+    type: array
+    items:
+      $ref: "./keyword.yaml"
+  updated_date:
+    type: string
+    format: date-time
+  # Kept for compatibility with Work.awards object payloads.
+  funder_display_name:
+    type: string
+  funder_id:
+    type: string
+  award_id:
+    type: string

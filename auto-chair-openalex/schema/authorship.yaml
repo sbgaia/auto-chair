@@ -1,0 +1,33 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+title: Authorship
+type: object
+additionalProperties: false
+properties:
+  author_position:
+    enum: ["first", "middle", "last"]
+  author:
+    type: object
+    additionalProperties: false
+    properties:
+      id:
+        type: string
+      display_name:
+        type: string
+      orcid:
+        type: [string, "null"]
+  institutions:
+    type: array
+    items:
+      $ref: "./dehydrated_institution.yaml"
+  countries:
+    type: array
+    items:
+      type: string
+  is_corresponding:
+    type: boolean
+  raw_author_name:
+    type: [string, "null"]
+  raw_affiliation_strings:
+    type: array
+    items:
+      type: string

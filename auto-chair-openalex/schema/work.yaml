@@ -3,16 +3,13 @@ title: Work
 type: object
 additionalProperties: false
 properties:
-  # How to generate this field?
   abstract_inverted_index:
-    type: object
-    additionalProperties: false
-    patternProperties:
-      "^[a-z]+$":
-        type: object
+    anyOf:
+      - type: "null"
+      - type: object
         additionalProperties: false
         patternProperties:
-          "^[0-9]+$":
+          "^.+$":
             type: array
             items:
               type: integer
@@ -25,33 +22,43 @@ properties:
     items:
       $ref: "./authorship.yaml"
   apc_list:
-    $ref: "./apc.yaml"
+    anyOf:
+      - type: "null"
+      - $ref: "./apc.yaml"
   apc_paid:
-    $ref: "./apc.yaml"
+    anyOf:
+      - type: "null"
+      - $ref: "./apc.yaml"
   best_oa_location:
-    $ref: "./location.yaml"
+    anyOf:
+      - type: "null"
+      - $ref: "./location.yaml"
   biblio:
     $ref: "./bibliography.yaml"
   citation_normalized_percentile:
-    type: object
-    additionalProperties: false
-    properties:
-      value:
-        type: number
-      is_in_top_1_percent:
-        type: boolean
-      is_in_top_10_percent:
-        type: boolean
+    anyOf:
+      - type: "null"
+      - type: object
+        additionalProperties: false
+        properties:
+          value:
+            type: number
+          is_in_top_1_percent:
+            type: boolean
+          is_in_top_10_percent:
+            type: boolean
   cited_by_count:
     type: integer
   cited_by_percentile_year:
-    type: object
-    additionalProperties: false
-    properties:
-      min:
-        type: integer
-      max:
-        type: integer
+    anyOf:
+      - type: "null"
+      - type: object
+        additionalProperties: false
+        properties:
+          min:
+            type: integer
+          max:
+            type: integer
   concepts:
     type: array
     items:
@@ -65,7 +72,7 @@ properties:
     items:
       type: string
   content_url:
-    type: string
+    type: [string, "null"]
     format: uri
   countries_distinct_count:
     type: integer
@@ -81,17 +88,17 @@ properties:
           type: integer
   created_date:
     type: string
-    format: date-time
+    format: date
   display_name:
     type: string
   doi:
-    type: string
+    type: [string, "null"]
   fwci:
-    type: number
-  founders:
+    type: [number, "null"]
+  funders:
     type: array
     items:
-      $ref: "./founder.yaml"
+      $ref: "./funder.yaml"
   has_content:
     type: object
     additionalProperties: false
@@ -111,7 +118,7 @@ properties:
       openalex:
         type: string
       mag:
-        type: integer
+        type: [integer, string]
       pmid:
         type: string
       pmcid:
@@ -134,7 +141,7 @@ properties:
     items:
       $ref: "./keyword.yaml"
   language:
-    type: string
+    type: [string, "null"]
   locations:
     type: array
     items:
@@ -154,19 +161,23 @@ properties:
       oa_status:
         enum: ["closed", "green", "gold", "hybrid", "bronze", "diamond"]
       oa_url:
-        type: string
+        type: [string, "null"]
         format: uri
       any_repository_has_fulltext:
         type: boolean
   primary_location:
-    $ref: "./location.yaml"
+    anyOf:
+      - type: "null"
+      - $ref: "./location.yaml"
   primary_topic:
-    $ref: "./topic.yaml"
+    anyOf:
+      - type: "null"
+      - $ref: "./topic.yaml"
   publication_date:
-    type: string
+    type: [string, "null"]
     format: date
   publication_year:
-    type: integer
+    type: [integer, "null"]
   referenced_works:
     type: array
     items:
@@ -191,6 +202,8 @@ properties:
     type: string
   type:
     type: string
+  type_crossref:
+    type: [string, "null"]
   updated_date:
     type: string
     format: date-time
