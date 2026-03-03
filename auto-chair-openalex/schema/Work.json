@@ -26,13 +26,13 @@
     "awards": {
       "type": "array",
       "items": {
-        "$ref": "./award.json"
+        "$ref": "./Award.json"
       }
     },
     "authorships": {
       "type": "array",
       "items": {
-        "$ref": "./authorship.json"
+        "$ref": "./Authorship.json"
       }
     },
     "apc_list": {
@@ -41,7 +41,7 @@
           "type": "null"
         },
         {
-          "$ref": "./apc.json"
+          "$ref": "./ArticleProcessingCharge.json"
         }
       ]
     },
@@ -51,7 +51,7 @@
           "type": "null"
         },
         {
-          "$ref": "./apc.json"
+          "$ref": "./ArticleProcessingCharge.json"
         }
       ]
     },
@@ -61,12 +61,12 @@
           "type": "null"
         },
         {
-          "$ref": "./location.json"
+          "$ref": "./Location.json"
         }
       ]
     },
     "biblio": {
-      "$ref": "./bibliography.json"
+      "$ref": "./Bibliography.json"
     },
     "citation_normalized_percentile": {
       "anyOf": [
@@ -115,7 +115,7 @@
     "concepts": {
       "type": "array",
       "items": {
-        "$ref": "./concept.json"
+        "$ref": "./Concept.json"
       }
     },
     "corresponding_author_ids": {
@@ -177,7 +177,7 @@
     "funders": {
       "type": "array",
       "items": {
-        "$ref": "./funder.json"
+        "$ref": "./Funder.json"
       }
     },
     "has_content": {
@@ -245,7 +245,7 @@
     "keywords": {
       "type": "array",
       "items": {
-        "$ref": "./keyword.json"
+        "$ref": "./Keyword.json"
       }
     },
     "language": {
@@ -257,7 +257,7 @@
     "locations": {
       "type": "array",
       "items": {
-        "$ref": "./location.json"
+        "$ref": "./Location.json"
       }
     },
     "locations_count": {
@@ -266,7 +266,7 @@
     "mesh": {
       "type": "array",
       "items": {
-        "$ref": "./mesh.json"
+        "$ref": "./Mesh.json"
       }
     },
     "open_access": {
@@ -304,7 +304,7 @@
           "type": "null"
         },
         {
-          "$ref": "./location.json"
+          "$ref": "./Location.json"
         }
       ]
     },
@@ -314,7 +314,7 @@
           "type": "null"
         },
         {
-          "$ref": "./topic.json"
+          "$ref": "./Topic.json"
         }
       ]
     },
@@ -351,13 +351,13 @@
     "sustainable_development_goals": {
       "type": "array",
       "items": {
-        "$ref": "./sustainable_development_goal.json"
+        "$ref": "./SustainableDevelopmentGoal.json"
       }
     },
     "topics": {
       "type": "array",
       "items": {
-        "$ref": "./topic.json"
+        "$ref": "./Topic.json"
       }
     },
     "title": {

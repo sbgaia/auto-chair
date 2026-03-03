@@ -10,25 +10,42 @@ async fn main() {
         .expect("codegen crate must be in repo root")
         .to_path_buf();
 
-    let schema_path = repo_root.join("schema/apc.json");
-    let entity_output_path = repo_root.join("src/entities/apc.rs");
+    let schema_dir = repo_root.join("schema");
+    let entity_output_dir = repo_root.join("src/entities");
 
-    let content = fs::read_to_string(&schema_path)
+    let mut entries = fs::read_dir(&schema_dir)
         .await
-        .expect("failed to read schema/apc.json");
-    let schema: serde_json::Value =
-        serde_json::from_str(&content).expect("failed to parse schema/apc.json");
+        .expect("failed to read schema directory");
 
-    let generated = generator::generate_entity(&schema)
-        .expect("failed to generate LoadedApc from schema/apc.json");
+    loop {
+        let entry = entries.next_entry()
+            .await
+            .expect("failed to read schema directory entry");
+        
+        if let None = entry {
+            break;
+        }
 
-    fs::write(&entity_output_path, generated)
-        .await
-        .expect("failed to write src/entities/apc.rs");
+        let entry = entry.unwrap();
+        if entry.path().extension().and_then(|s| s.to_str()) != Some("json") {
+            continue;
+        }
 
-    println!(
-        "Generated LoadedApc entity from {} to {}",
-        schema_path.display(),
-        entity_output_path.display()
-    );
+        let file_stem = entry.path().file_stem().expect("schema file must have a name").to_os_string();
+        let file_name = file_stem.to_str().expect("schema file name must be valid UTF-8");
+
+        println!("Processing schema file: {}", file_name);
+        let content = fs::read_to_string(entry.path())
+            .await
+            .expect("failed to read schema file");
+
+        let schema: serde_json::Value = serde_json::from_str(&content)
+            .expect("failed to parse schema JSON");
+        let entity_code = generator::generate_entity(&schema).expect("failed to generate entity code");
+
+        let output_path = entity_output_dir.join(format!("{file_name}.rs"));
+        fs::write(&output_path, entity_code)
+            .await
+            .expect("failed to write entity file");
+    }
 }

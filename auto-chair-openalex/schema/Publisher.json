@@ -59,7 +59,7 @@
     "counts_by_year": {
       "type": "array",
       "items": {
-        "$ref": "./counts_by_year.json"
+        "$ref": "./CountsByYear.json"
       }
     },
     "cited_by_count": {

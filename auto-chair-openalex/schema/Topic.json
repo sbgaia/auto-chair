@@ -14,13 +14,13 @@
       "type": "number"
     },
     "subfield": {
-      "$ref": "./topic_classification.json"
+      "$ref": "./TopicClassification.json"
     },
     "field": {
-      "$ref": "./topic_classification.json"
+      "$ref": "./TopicClassification.json"
     },
     "domain": {
-      "$ref": "./topic_classification.json"
+      "$ref": "./TopicClassification.json"
     },
     "description": {
       "type": "string"

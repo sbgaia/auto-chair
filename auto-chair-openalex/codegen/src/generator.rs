@@ -50,7 +50,13 @@ pub fn generate_entity(schema: &Value) -> Result<String, InvalidSchemaError> {
     w!(out, "#[derive(Debug, Clone, Serialize, Deserialize)]");
     w!(out, "pub struct {entity_name} {{");
     for (field_name, field_schema) in properties {
-        let field_type = get_rust_type(field_schema)?;
+        let mut field_type = get_rust_type(field_schema)?;
+        
+        if !required.contains(field_name) {
+            w!(out, "  #[serde(skip_serializing_if = \"Option::is_none\")]");
+            field_type = format!("Option<{}>", field_type);
+        }
+
         w!(out, "  pub {}: {},", field_name, field_type);
     }
     w!(out, "}}");

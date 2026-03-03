@@ -32,18 +32,18 @@
       }
     },
     "summary_stats": {
-      "$ref": "./summary_stats.json"
+      "$ref": "./SummaryStats.json"
     },
     "topics": {
       "type": "array",
       "items": {
-        "$ref": "./topic.json"
+        "$ref": "./Topic.json"
       }
     },
     "keywords": {
       "type": "array",
       "items": {
-        "$ref": "./keyword.json"
+        "$ref": "./Keyword.json"
       }
     },
     "updated_date": {

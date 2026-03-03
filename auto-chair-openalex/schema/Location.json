@@ -27,7 +27,7 @@
           "type": "null"
         },
         {
-          "$ref": "./dehydrated_source.json"
+          "$ref": "./DehydratedSource.json"
         }
       ]
     },

@@ -1,34 +1,31 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Author",
+  "title": "Funder",
   "type": "object",
   "additionalProperties": false,
   "properties": {
-    "affiliations": {
+    "id": {
+      "type": "string"
+    },
+    "alternate_titles": {
       "type": "array",
       "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "institution": {
-            "$ref": "./dehydrated_institution.json"
-          },
-          "years": {
-            "type": "array",
-            "items": {
-              "type": "integer"
-            }
-          }
-        }
+        "type": "string"
       }
     },
     "cited_by_count": {
       "type": "integer"
     },
+    "country_code": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
     "counts_by_year": {
       "type": "array",
       "items": {
-        "$ref": "./counts_by_year.json"
+        "$ref": "./CountsByYear.json"
       }
     },
     "created_date": {
@@ -38,14 +35,15 @@
     "display_name": {
       "type": "string"
     },
-    "display_name_alternatives": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
+    "grants_count": {
+      "type": "integer"
     },
-    "id": {
-      "type": "string"
+    "homepage_url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "uri"
     },
     "ids": {
       "type": "object",
@@ -54,25 +52,25 @@
         "openalex": {
           "type": "string"
         },
-        "orcid": {
+        "ror": {
           "type": [
             "string",
             "null"
           ]
         },
-        "scopus": {
+        "wikidata": {
           "type": [
             "string",
             "null"
           ]
         },
-        "twitter": {
+        "crossref": {
           "type": [
             "string",
             "null"
           ]
         },
-        "wikipedia": {
+        "doi": {
           "type": [
             "string",
             "null"
@@ -80,49 +78,39 @@
         }
       }
     },
-    "last_known_institutions": {
+    "roles": {
       "type": "array",
       "items": {
-        "$ref": "./dehydrated_institution.json"
+        "$ref": "./OrganizationRole.json"
       }
     },
-    "orcid": {
+    "ror": {
       "type": [
         "string",
         "null"
       ]
     },
     "summary_stats": {
-      "$ref": "./summary_stats.json"
+      "$ref": "./SummaryStats.json"
     },
     "updated_date": {
       "type": "string",
       "format": "date-time"
     },
-    "works_api_url": {
-      "type": "string",
-      "format": "uri"
-    },
     "works_count": {
       "type": "integer"
-    },
-    "topics": {
-      "type": "array",
-      "items": {
-        "$ref": "./topic.json"
-      }
-    },
-    "topic_share": {
-      "type": "array",
-      "items": {
-        "$ref": "./topic.json"
-      }
     },
     "x_concepts": {
       "type": "array",
       "items": {
-        "$ref": "./concept.json"
+        "$ref": "./Concept.json"
       }
+    },
+    "doi": {
+      "type": [
+        "string",
+        "null"
+      ]
     }
   }
 }

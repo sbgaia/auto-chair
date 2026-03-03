@@ -1,11 +1,35 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Institution",
+  "title": "Source",
   "type": "object",
   "additionalProperties": false,
   "properties": {
     "id": {
       "type": "string"
+    },
+    "abbreviated_title": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "alternate_titles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "apc_prices": {
+      "type": "array",
+      "items": {
+        "$ref": "./ArticleProcessingCharge.json"
+      }
+    },
+    "apc_usd": {
+      "type": [
+        "integer",
+        "null"
+      ]
     },
     "cited_by_count": {
       "type": "integer"
@@ -19,7 +43,7 @@
     "counts_by_year": {
       "type": "array",
       "items": {
-        "$ref": "./counts_by_year.json"
+        "$ref": "./CountsByYear.json"
       }
     },
     "created_date": {
@@ -29,27 +53,30 @@
     "display_name": {
       "type": "string"
     },
-    "display_name_acronyms": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
-    "display_name_alternatives": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
-    "geo": {
-      "$ref": "./geo.json"
-    },
     "homepage_url": {
       "type": [
         "string",
         "null"
       ],
       "format": "uri"
+    },
+    "host_organization": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "host_organization_lineage": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "host_organization_name": {
+      "type": [
+        "string",
+        "null"
+      ]
     },
     "ids": {
       "type": "object",
@@ -58,21 +85,22 @@
         "openalex": {
           "type": "string"
         },
-        "ror": {
+        "issn_l": {
           "type": [
             "string",
             "null"
           ]
         },
-        "grid": {
-          "type": [
-            "string",
-            "null"
-          ]
+        "issn": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
-        "wikipedia": {
+        "mag": {
           "type": [
             "string",
+            "integer",
             "null"
           ]
         },
@@ -82,55 +110,39 @@
             "null"
           ]
         },
-        "mag": {
+        "fatcat": {
           "type": [
             "string",
-            "integer",
             "null"
           ]
         }
       }
     },
-    "image_thumbnail_url": {
-      "type": [
-        "string",
-        "null"
-      ],
-      "format": "uri"
-    },
-    "image_url": {
-      "type": [
-        "string",
-        "null"
-      ],
-      "format": "uri"
-    },
-    "international": {
-      "type": "object",
-      "additionalProperties": true
-    },
-    "is_super_system": {
+    "is_in_doaj": {
       "type": "boolean"
     },
-    "lineage": {
+    "is_oa": {
+      "type": "boolean"
+    },
+    "is_core": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "issn": {
       "type": "array",
       "items": {
         "type": "string"
       }
     },
-    "repositories": {
-      "type": "array",
-      "items": {
-        "$ref": "./dehydrated_source.json"
-      }
+    "issn_l": {
+      "type": [
+        "string",
+        "null"
+      ]
     },
-    "roles": {
-      "type": "array",
-      "items": {
-        "$ref": "./organization_role.json"
-      }
-    },
-    "associated_institutions": {
+    "societies": {
       "type": "array",
       "items": {
         "type": "object",
@@ -160,29 +172,20 @@
               "null"
             ]
           },
-          "relationship": {
-            "type": [
-              "string",
-              "null"
-            ]
+          "lineage": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         }
       }
     },
-    "ror": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
     "summary_stats": {
-      "$ref": "./summary_stats.json"
+      "$ref": "./SummaryStats.json"
     },
     "type": {
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": "string"
     },
     "updated_date": {
       "type": "string",
@@ -198,7 +201,7 @@
     "x_concepts": {
       "type": "array",
       "items": {
-        "$ref": "./concept.json"
+        "$ref": "./Concept.json"
       }
     }
   }

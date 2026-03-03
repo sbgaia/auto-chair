@@ -32,7 +32,7 @@
     "institutions": {
       "type": "array",
       "items": {
-        "$ref": "./dehydrated_institution.json"
+        "$ref": "./DehydratedInstitution.json"
       }
     },
     "countries": {
