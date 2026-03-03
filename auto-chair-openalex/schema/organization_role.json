@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OrganizationRole",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "role": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "works_count": {
+      "type": "integer"
+    }
+  }
+}

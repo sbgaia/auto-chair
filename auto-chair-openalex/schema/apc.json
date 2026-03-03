@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ArticleProcessingCharge",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "value",
+    "currency",
+    "provenance",
+    "value_usd"
+  ],
+  "properties": {
+    "value": {
+      "type": "integer"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "provenance": {
+      "type": "string"
+    },
+    "value_usd": {
+      "type": "integer"
+    }
+  }
+}

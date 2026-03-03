@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Topic",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "display_name": {
+      "type": "string"
+    },
+    "score": {
+      "type": "number"
+    },
+    "subfield": {
+      "$ref": "./topic_classification.json"
+    },
+    "field": {
+      "$ref": "./topic_classification.json"
+    },
+    "domain": {
+      "$ref": "./topic_classification.json"
+    },
+    "description": {
+      "type": "string"
+    },
+    "ids": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "openalex": {
+          "type": "string"
+        },
+        "wikipedia": {
+          "type": "string"
+        }
+      }
+    },
+    "keywords": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "siblings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "display_name": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "updated_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "works_count": {
+      "type": "integer"
+    },
+    "cited_by_count": {
+      "type": "integer"
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DehydratedSource",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "display_name": {
+      "type": "string"
+    },
+    "issn_l": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "issn": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "is_oa": {
+      "type": "boolean"
+    },
+    "is_in_doaj": {
+      "type": "boolean"
+    },
+    "host_organization": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "host_organization_name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "host_organization_lineage": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "host_organization_lineage_names": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "type": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "country_code": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

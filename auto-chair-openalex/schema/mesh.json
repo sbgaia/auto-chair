@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Mesh",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "descriptor_ui": {
+      "type": "string"
+    },
+    "descriptor_name": {
+      "type": "string"
+    },
+    "qualifier_ui": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "qualifier_name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "is_major_topic": {
+      "type": "boolean"
+    }
+  }
+}
